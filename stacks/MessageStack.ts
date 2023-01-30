@@ -21,7 +21,7 @@ export function MessageStack({ stack }: StackContext) {
             }
           }
         },
-        "GET /phone": "functions/message/actions.listPhoneNumber",
+        "GET /phone": "functions/message/actions.listPhoneNumbers",
         "POST /phone/add": "functions/message/actions.addPhoneNumber",
         "POST /phone/verify": "functions/message/actions.verifyPhoneNumber",
         

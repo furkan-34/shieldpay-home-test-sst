@@ -100,7 +100,7 @@ export const verifyPhoneNumber: any = async (event: any) => {
   return apiResponse(200, {message: `${phoneNumber} is verified on sandbox successfully.`})
 };
 
-export const listPhoneNumber: any = async (event: any) => {
+export const listPhoneNumbers: any = async (event: any) => {
   
   type QueryParams = { NextToken?: string, MaxResults?: number} | undefined;
   const queryString: QueryParams = event.queryStringParameters
