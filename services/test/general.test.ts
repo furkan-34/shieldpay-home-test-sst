@@ -7,18 +7,15 @@ describe("Message-Service", () => {
 
   const responseType = {
     statusCode: expect.any(Number),
-    body: {
-      statusCode: expect.any(Number),
-      payload: expect.anything()
-    }
+    payload: expect.anything()
   }
 
   test("List Numbers", async () => {
     const response = await axios.get(baseUrl + "/phone");
-
+    console.log(response.data)
     expect(response.data).toEqual(responseType)
     expect(response.data.statusCode).toBe(200);
-    expect(response.data.statusCode).toHaveProperty('PhoneNumbers');
+    expect(response.data.payload).toHaveProperty('PhoneNumbers');
   });
 
   test("Add Number", async () => {
@@ -28,17 +25,18 @@ describe("Message-Service", () => {
 
     expect(response.data).toEqual(responseType)
     expect(response.data.statusCode).toBe(201);
-    expect(response.data.statusCode).toHaveProperty('message');
+    expect(response.data.payload).toHaveProperty('message');
   });
 
   test("Verify Number", async () => {
     const response = await axios.post(baseUrl + "/phone/verify", {
-      phoneNumber: phoneNumber
+      phoneNumber: phoneNumber,
+      OneTimePassword: "123123"
     });
 
     expect(response.data).toEqual(responseType)
     expect(response.data.statusCode).toBe(200);
-    expect(response.data.statusCode).toHaveProperty('message');
+    expect(response.data.payload).toHaveProperty('message');
   });
 
   test("Send SMS to User", async () => {
@@ -49,8 +47,6 @@ describe("Message-Service", () => {
 
     expect(response.data).toEqual(responseType)
     expect(response.data.statusCode).toBe(200);
-    expect(response.data.statusCode).toHaveProperty('message');
+    expect(response.data.payload).toHaveProperty('message');
   });
 });
-
-
