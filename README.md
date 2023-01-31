@@ -24,6 +24,8 @@ Project developed as infrastructure as code (IaaS) with serverless stack to publ
 - Verify your phone number via verifyPhoneNumber API (phone/verify)
 - Publish your message with phone number via sendSmsToUser API (sms/send)
 
+**Base Url will be visible when project starts as Api url**
+
 ## Installation
 
 Project tested with typescript's last version. (4.9.4)
